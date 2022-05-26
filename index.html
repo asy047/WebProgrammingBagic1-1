@@ -4,99 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20221009_안서영_기말대체</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
+    <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/script.js"></script>
 </head>
 <body>
+    
     <div id="container">
         <header>
             <h1><a href="http://asy047.github.io/introduce" target="_blank">
             ASY Blog
             </a></h1>
             <div class="login">
-                <a href="javascript:;" class="id">로그인</a>
+                <a href="javascript:;" class="id">로그인</a> | 
                 <a href="javascript:;" class="join">회원가입</a>
             </div>
         </header>
         <!-- //header -->
         
         <div id="sub-header">
-            <audio src="#"></audio>
-            <div class="text-banner-aera">
+            <div class="audio-area">
+                <audio id="audio" src="media/bgMusicTest.mp3" autoplay muted loop></audio>
+                <button id="volumeUp" onclick="audioControl(event)">➕</button>
+                <button id="volumeDown" onclick="audioControl(event)">➖</button>
+                <button id="muted" onclick="audioControl(event)">🔈</button>
+                <button id="play" onclick="audioControl(event)">🖤</button>
+                <span id="playingState">Now Playing...</span>
+                <span id="icoState">🎵</span>
+            </div>
+            <div class="text-banner-area">
                 <span>쉽게만 살아가면 개재밌어 빙고</span>
             </div>
         </div>
         <!-- //sub-header -->
-        <div>
 
-        </div>
-        <article class="left-side">
-            <figure class="proimg">
-                <img src="img/mypic.jpg" alt="프로필사진">
-            </figure>
-            <span class="name">안서영</span>
-            <span class="introduce">어서오세요! 안서영의 블로그에 오신걸 환영합니다~</span>
-            <div class="sns-ico">
-                <div>
-                    <a href="instagram.co.kr/notstadiing"></a>
-                    <span>@notstadiing</span>
-                </div>
-                <div>
-                    <a href="github.io/asy047"></a>
-                    <span>github@asy047</span>
-                </div>
-                <div>
-                    <a href="naver.com"></a>
-                    <span>naver blog</span>
-                </div>
-            </div>
-        </article>
-        <!-- //left-side -->
-
-        <article class="contents">
-            <section id="home">
-                <figure>
-                    <img src="img/home-bg.jpg" alt="home사진">
+        <div id="main-contents">
+            <article class="left-side">
+                <figure class="proimg">
+                    <img src="img/mypic.jpg" alt="프로필사진">
                 </figure>
-                <h2>Welcome, 여기는 안서영의 블로그입니다. 잘 보다 가세용.</h2>
-                <p>좌측 상단 오디어 컨트롤러에서 음소거를 해제하시면 배경음악이 나와요.</p>
-                <p>기말고사까지, ddd일 hh시간</p>
-            </section>
-        </article>
-        <!-- //contents -->
-
-        <article class="main-nav">
-            <nav>
-                <ul class="depth1">
-                    <li><a href="#home">
-                        home
-                    </a></li>
-                    <li><a href="javascript:;">
-                        post
-                        <ul class="depth2">
-                            <li><a href="#develop">
-                                devlop note
-                            </a></li>
-                            <li><a href="#diary">
-                                diary
-                            </a></li>
-                        </ul>
-                    </a></li>
-                    <li><a href="#video">
-                        video
-                    </a></li>
-                    <li><a href="#map">
-                        map
-                    </a></li>
-                </ul>
-            </nav>
-        </article>
-        <!-- //main-nav -->
+                <p class="name">안서영</p>
+                <p class="introduce">어서오세요! 안서영의 블로그에 오신걸 환영합니다.</p>
+                <div class="sns-ico">
+                    <div class="instagram">
+                        <a href="https://www.instagram.com/notstandiing/"><span><i class="fa-brands fa-instagram"></i></span></a>
+                        @notstadiing
+                    </div>
+                    <div class="github">
+                        <a href="https://github.com/asy047"><span></span></a>
+                        github.com/asy047
+                    </div>
+                    <div class="naverblog">
+                        <a href="https://naver.com"><span></span></a>
+                        naver blog
+                    </div>
+                </div>
+            </article>
+            <!-- //left-side -->
+    
+            <article class="contents">
+                <section id="home">
+                    <figure>
+                        <img src="img/home-bg.jpg" alt="home사진">
+                    </figure>
+                    <h2>Welcome, 여기는 안서영의 블로그입니다. 잘 보다 가세용.</h2>
+                    <p>좌측 상단에 배경음악 컨트롤러가 있어요!</p>
+                    <p class="dDay">기말고사까지, <span id="day">ddd</span>일 <span id="timeHour">HH</span>시간</p>
+                </section>
+            </article>
+            <!-- //contents -->
+    
+            <article class="main-nav">
+                <nav>
+                    <ul class="depth1">
+                        <li>
+                            <a href="#home">
+                                home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                            post
+                            <ul class="depth2">
+                                <li><a href="#develop">
+                                    devlop note
+                                </a></li>
+                                <li><a href="#lectureNote">
+                                    lecture note
+                                </a></li>
+                                <li><a href="#diary">
+                                    diary
+                                </a></li>
+                            </ul>
+                            </a>
+                        </li>
+                        <li><a href="#video">
+                            video
+                        </a></li>
+                        <li><a href="#map">
+                            map
+                        </a></li>
+                    </ul>
+                </nav>
+            </article>
+            <!-- //main-nav -->
+        </div>
+        <!-- //main-contents -->
 
         <footer>
             All copyright by asy&copy;
@@ -104,5 +120,6 @@
         </footer>
 
     </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
