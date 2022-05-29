@@ -30,11 +30,11 @@ var playingState = document.getElementById("playingState");
 
 // -- jQuery area --
 $(function() {
-  var $depth1Li = $(".depth1 > li");
-  var $depth2 = $(".depth2");
-  $(".depth1 > li").next().stop().on('mouseenter', function(){
-    console.log($(this));
-    $(this).children().slideDown();
+  $(".post").on('mouseenter', function(){
+    $(".depth2").children().stop().slideDown();
+  });
+  $(".depth2", ".post").on('mouseleave', function(){
+    $(this).children().stop().slideUp();
   })
 })
 
