@@ -3,7 +3,7 @@
 
 html {font-size: 10px; scroll-behavior: smooth;}
 body {
-    background: #777;
+    background: #eee;
     font: 500 1.5rem 'Apple SD Gothic', sans-serif; color: #222;
 }
 
@@ -26,6 +26,7 @@ header {
     font-family: 'DungGeunMo', monospace;
     box-sizing: border-box;
     background: #fff;
+    /* box-shadow: 0px 0px  #222; */
 }
 header h1 {
     float: left;
@@ -69,7 +70,6 @@ header .login {
     background: #fff;
     box-sizing: border-box;
 }
-
 #sub-header .audio-area {
     float: left;
 }
@@ -91,14 +91,12 @@ header .login {
     top: 0;
     margin-left: 5px;
     font-size: 1.3rem;
-    /* animation: flowMusic 1s infinite cubic-bezier(0.22, 0.61, 0.36, 1) alternate-reverse; */
+    animation: flowMusic 1s infinite cubic-bezier(0.22, 0.61, 0.36, 1) alternate-reverse;
 }
 @keyframes flowMusic {
     0%{top: -10px;}
     100%{top: 3px;}
-
 }
-
 #sub-header .text-banner-area {
     float: right;
     overflow: hidden;
@@ -119,7 +117,6 @@ header .login {
 
 /* main-contents */
 #main-contents{
-    
     display: flex;
     justify-content: space-between;
     width: 1280px;
@@ -157,15 +154,23 @@ header .login {
 }
 .left-side .sns-ico a{
     display: inline-block;
-    vertical-align: middle;
+    margin-bottom: 0.5em;
 }
 .left-side .sns-ico a span {
     display: inline-block;
     width: 30px;
     height: 30px;
-    font-size: 2em;
-    background: #000;
+    margin-right: 5px;
+    font-size: 1.3em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
     border-radius: 15px;
+    color: #fff;
+}
+.left-side .sns-ico b {
+    display: inline-block;
+    text-decoration: underline;
 }
 .left-side .sns-ico .instagram span {
     background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);}
@@ -191,8 +196,9 @@ header .login {
     font-size: 3.5rem;
     font-weight: bold;
 }
-#home .dDay {
-    font-size: 2.5rem;
+#home #dDay {
+    margin-top: 1em;
+    font-size: 3rem;
 }
 
 /* main-nav */
@@ -202,7 +208,6 @@ header .login {
     text-align: center;
     border-radius: 0 0 30px;
 }
-.main-nav nav {}
 .main-nav nav a {display: block;}
 .main-nav nav ul.depth1 li {
     display: inline-block;
@@ -211,17 +216,19 @@ header .login {
     text-transform: uppercase;
     /* cursor: pointer; */
 }
-.main-nav nav ul.depth1 > li:not(:nth-child(2)) a:hover {background: #ddd;}
+.main-nav nav ul.depth1 > li:not(:nth-child(2)) a:hover,
+ul.depth2 li:hover {background: #ddd;}
 .main-nav nav ul.depth2 {
     display: block;
-    /* background: hotpink; */
+    background: #aaa;
 }
 .main-nav nav ul.depth2 li {
     display: none;
 }
-ul.depth2 > li a:hover {}
+
 
 /* footer */
 footer {
-
+    margin: 2em;
+    text-align: center;
 }

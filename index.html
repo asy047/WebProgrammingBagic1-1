@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20221009_안서영_기말대체</title>
-    <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/main.css">
+    
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script src="js/all.min.js"></script>
 </head>
 <body>
     
@@ -26,8 +27,8 @@
         <!-- //header -->
         
         <div id="sub-header">
-            <div class="audio-area">
-                <audio id="audio" src="media/bgMusicTest.mp3" autoplay muted loop></audio>
+            <div class="audio-area"> <!-- ## 테스팅을 위해 muted 해놓음 ## -->
+                <audio id="audio" src="media/bgMusicTest.mp3" muted autoplay loop>오디오가 지원되지 않습니다 ㅜ.ㅜ</audio>
                 <button id="volumeUp" onclick="audioControl(event)">➕</button>
                 <button id="volumeDown" onclick="audioControl(event)">➖</button>
                 <button id="muted" onclick="audioControl(event)">🔈</button>
@@ -50,16 +51,14 @@
                 <p class="introduce">어서오세요! 안서영의 블로그에 오신걸 환영합니다.</p>
                 <div class="sns-ico">
                     <div class="instagram">
-                        <a href="https://www.instagram.com/notstandiing/"><span><i class="fa-brands fa-instagram"></i></span></a>
-                        @notstadiing
+                        <a target="_blank" href="https://www.instagram.com/notstandiing/"><span><i class="fab fa-instagram"></i></span><b>@notstadiing</b></a>
                     </div>
                     <div class="github">
-                        <a href="https://github.com/asy047"><span></span></a>
-                        github.com/asy047
+                        <a target="_blank" href="https://github.com/asy047"><span><i class="fab fa-github"></i></span><b>github.com/asy047</b></a>
                     </div>
                     <div class="naverblog">
-                        <a href="https://naver.com"><span></span></a>
-                        naver blog
+                        <a target="_blank" href="https://naver.com"><span><i class="fas fa-blog"></i></span><b>naver blog</b></a>
+                        
                     </div>
                 </div>
             </article>
@@ -72,7 +71,7 @@
                     </figure>
                     <h2>Welcome, 여기는 안서영의 블로그입니다. 잘 보다 가세용.</h2>
                     <p>좌측 상단에 배경음악 컨트롤러가 있어요!</p>
-                    <p class="dDay">기말고사까지, <span id="day">ddd</span>일 <span id="timeHour">HH</span>시간</p>
+                    <p id="dDay">s</p>
                 </section>
             </article>
             <!-- //contents -->
