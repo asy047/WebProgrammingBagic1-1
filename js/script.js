@@ -50,16 +50,16 @@ function audioControl(e) {
   if(id == "volumeUp") {
     audio.volume += 0.1;
     playingState.innerHTML = "Volume " + (audio.volume * 100).toFixed() + "%";
-    setTimeout(() => {
-      nowPlaying(); // 비동기지연 이슈
-    }, 3000);
+    // setTimeout(() => {
+    //   nowPlaying(); // 비동기지연 이슈
+    // }, 3000);
   }
   if(id == "volumeDown") {
     audio.volume -= 0.1;
     playingState.innerHTML = "Volume " + (audio.volume * 100).toFixed() + "%";
-    setTimeout(() => {
-      nowPlaying(); // 비동기지연 이슈
-    }, 3000);
+    // setTimeout(() => {
+    //   nowPlaying(); // 비동기지연 이슈
+    // }, 3000);
   }
 }
 // ========== //audio control ==========

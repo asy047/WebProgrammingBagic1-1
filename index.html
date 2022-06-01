@@ -5,118 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20221009_안서영_기말대체</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/main.css">
-    
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/all.min.js"></script>
 </head>
 <body>
-    
-    <div id="container">
-        <header>
-            <h1><a href="http://asy047.github.io/introduce" target="_blank">
-            ASY Blog
-            </a></h1>
-            <div class="login">
-                <a href="javascript:;" class="id">로그인</a> | 
-                <a href="javascript:;" class="join">회원가입</a>
-            </div>
-        </header>
-        <!-- //header -->
-        
-        <div id="sub-header">
-            <div class="audio-area"> <!-- ## 테스팅을 위해 muted 해놓음 ## -->
-                <audio id="audio" src="media/bgMusicTest.mp3" muted autoplay loop>오디오가 지원되지 않습니다 ㅜ.ㅜ</audio>
-                <button id="volumeUp" onclick="audioControl(event)">➕</button>
-                <button id="volumeDown" onclick="audioControl(event)">➖</button>
-                <button id="muted" onclick="audioControl(event)">🔈</button>
-                <button id="play" onclick="audioControl(event)">🖤</button>
-                <span id="playingState">Now Playing...</span>
-                <span id="icoState">🎵</span>
-            </div>
-            <div class="text-banner-area">
-                <span>쉽게만 살아가면 개재밌어 빙고</span>
-            </div>
-        </div>
-        <!-- //sub-header -->
-
-        <div id="main-contents">
-            <article class="left-side">
-                <figure class="proimg">
-                    <img src="img/mypic.jpg" alt="프로필사진">
-                </figure>
-                <p class="name">안서영</p>
-                <p class="introduce">어서오세요! 안서영의 블로그에 오신걸 환영합니다.</p>
-                <div class="sns-ico">
-                    <div class="instagram">
-                        <a target="_blank" href="https://www.instagram.com/notstandiing/"><span><i class="fab fa-instagram"></i></span><b>@notstadiing</b></a>
-                    </div>
-                    <div class="github">
-                        <a target="_blank" href="https://github.com/asy047"><span><i class="fab fa-github"></i></span><b>github.com/asy047</b></a>
-                    </div>
-                    <div class="naverblog">
-                        <a target="_blank" href="https://naver.com"><span><i class="fas fa-blog"></i></span><b>naver blog</b></a>
-                        
-                    </div>
+    <div id="wrap">
+        <div id="container">
+            <header>
+                <h1><a href="http://asy047.github.io/introduce" target="_blank">
+                ASY Blog
+                </a></h1>
+                <div class="login">
+                    <a href="javascript:;" onclick="loginPopup()">로그인</a> | 
+                    <a href="javascript:;" class="join">회원가입</a>
                 </div>
-            </article>
-            <!-- //left-side -->
+            </header>
+            <!-- //header -->
+            
+            <div id="sub-header">
+                <div class="audio-area"> <!-- ## 테스팅을 위해 muted 해놓음 ## -->
+                    <audio id="audio" src="media/bgMusicTest.mp3" muted autoplay loop>오디오가 지원되지 않습니다 ㅜ.ㅜ</audio>
+                    <button id="volumeUp" onclick="audioControl(event)">➕</button>
+                    <button id="volumeDown" onclick="audioControl(event)">➖</button>
+                    <button id="muted" onclick="audioControl(event)">🔈</button>
+                    <button id="play" onclick="audioControl(event)">🖤</button>
+                    <span id="playingState">Now Playing...</span>
+                    <span id="icoState">🎵</span>
+                </div>
+                <div class="text-banner-area">
+                    <span>쉽게만 살아가면 개재밌어 빙고</span>
+                </div>
+            </div>
+            <!-- //sub-header -->
     
-            <article class="contents">
-                <section id="home">
-                    <figure>
-                        <img src="img/home-bg.jpg" alt="home사진">
+            <div id="main-contents">
+                <article class="left-side">
+                    <figure class="proimg">
+                        <img src="img/mypic.jpg" alt="프로필사진">
                     </figure>
-                    <h2>Welcome, 여기는 안서영의 블로그입니다. 잘 보다 가세용.</h2>
-                    <p>좌측 상단에 배경음악 컨트롤러가 있어요!</p>
-                    <p id="dDay">s</p>
-                </section>
-            </article>
-            <!-- //contents -->
+                    <p class="name">안서영</p>
+                    <p class="introduce">어서오세요! 안서영의 블로그에 오신걸 환영합니다.</p>
+                    <div class="sns-ico">
+                        <div class="instagram">
+                            <a target="_blank" href="https://www.instagram.com/notstandiing/"><span><i class="fab fa-instagram"></i></span><b>@notstadiing</b></a>
+                        </div>
+                        <div class="github">
+                            <a target="_blank" href="https://github.com/asy047"><span><i class="fab fa-github"></i></span><b>github.com/asy047</b></a>
+                        </div>
+                        <div class="naverblog">
+                            <a target="_blank" href="https://naver.com"><span><i class="fas fa-blog"></i></span><b>naver blog</b></a>
+                            
+                        </div>
+                    </div>
+                </article>
+                <!-- //left-side -->
+        
+                <article class="contents">
+                    <section id="home">
+                        <figure>
+                            <img src="img/home-bg.jpg" alt="home사진">
+                        </figure>
+                        <h2>Welcome, 여기는 안서영의 블로그입니다. 잘 보다 가세용.</h2>
+                        <p>좌측 상단에 배경음악 컨트롤러가 있어요!</p>
+                        <p id="dDay">s</p>
+                    </section>
+                </article>
+                <!-- //contents -->
+        
+                <article class="main-nav">
+                    <nav>
+                        <ul class="depth1">
+                            <li>
+                                <a href="#home">
+                                    home
+                                </a>
+                            </li>
+                            <li class="post">
+                                post
+                                <ul class="depth2">
+                                    <li><a href="#develop">
+                                        devlop note
+                                    </a></li>
+                                    <li><a href="#lectureNote">
+                                        lecture note
+                                    </a></li>
+                                    <li><a href="#diary">
+                                        diary
+                                    </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#video">
+                                video
+                            </a></li>
+                            <li><a href="#map">
+                                map
+                            </a></li>
+                        </ul>
+                    </nav>
+                </article>
+                <!-- //main-nav -->
+            </div>
+            <!-- //main-contents -->
     
-            <article class="main-nav">
-                <nav>
-                    <ul class="depth1">
-                        <li>
-                            <a href="#home">
-                                home
-                            </a>
-                        </li>
-                        <li class="post">
-                            post
-                            <ul class="depth2">
-                                <li><a href="#develop">
-                                    devlop note
-                                </a></li>
-                                <li><a href="#lectureNote">
-                                    lecture note
-                                </a></li>
-                                <li><a href="#diary">
-                                    diary
-                                </a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#video">
-                            video
-                        </a></li>
-                        <li><a href="#map">
-                            map
-                        </a></li>
-                    </ul>
-                </nav>
-            </article>
-            <!-- //main-nav -->
+            <footer>
+                All copyright by asy&copy;
+                <address>20221009_안서영_기말대체 | 010-1234-5678</address>
+            </footer>
+    
         </div>
-        <!-- //main-contents -->
-
-        <footer>
-            All copyright by asy&copy;
-            <address>20221009_안서영_기말대체 | 010-1234-5678</address>
-        </footer>
-
     </div>
+    
     <script src="js/script.js"></script>
+    <script>
+        function loginPopup() {
+            window.open("login.html", "a", "width=400, height=500, left=100, top=100");
+        };
+    </script>
 </body>
 </html>
