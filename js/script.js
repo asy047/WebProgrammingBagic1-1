@@ -29,12 +29,12 @@ function audioControl(e) {
   if(id == "play") {
     if(audioPaused == true){
       audio.pause()
-      play.innerHTML = "🤍"
+      play.innerHTML = "🤍";
       playingState.innerHTML = "paused!!"
       icoState.innerHTML = "⏸";
-    } else {
+    } else if(audioPaused == false) {
       audio.play()
-      play.innerHTML = "🖤"
+      play.innerHTML = "🖤";
       nowPlaying();
     }
   }
@@ -95,5 +95,7 @@ $(function() {
     $(".depth2").children().stop().slideUp();
   });
 
+  // loading
+  $(".loading").fadeOut(1500);
 
 });
