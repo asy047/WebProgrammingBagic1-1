@@ -58,3 +58,8 @@ form input[type='submit']{
 a {
     text-align: right;
 }
+p {
+    margin: 1em;
+    font-size: 1.4rem;
+    text-align: center;
+}

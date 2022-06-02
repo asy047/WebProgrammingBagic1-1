@@ -7,6 +7,26 @@ body {
     font: 500 1.5rem 'Apple SD Gothic', sans-serif; color: #222;
 }
 
+/* keyring */
+#keyring{
+    position: relative;
+    top: 80px;
+}
+#keyring .dotted svg{
+    display: flex;
+    width: 10px;
+    fill: silver;
+    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
+}
+#keyring .heart {
+    transform: translate(-40%, -10%) rotate(0);
+    width: 50px;
+    fill: hotpink;
+    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.4));
+}
+
+
+
 /* container */
 #container {
     width: 1280px;
