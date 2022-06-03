@@ -51,9 +51,12 @@ form input[type='submit']{
     padding: 0;
     font-size: 1.5rem;
     font-weight: bolder;
-    background: #2222;
-    color: inherit;
+    background-color: #0f4c81;
+    color: #fff;
     cursor: pointer;
+}
+form input[type='submit'].disabled{
+    background: #aaa;
 }
 a {
     text-align: right;

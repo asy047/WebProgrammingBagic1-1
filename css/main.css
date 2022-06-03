@@ -16,7 +16,7 @@ body {
     display: flex;
     width: 10px;
     fill: silver;
-    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
+    /* filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4)); */
 }
 #keyring .heart {
     transform: translate(-40%, -10%) rotate(0);
@@ -207,7 +207,7 @@ header .login {
 }
 
 /* home */
-#home {}
+#home {display: none;}
 #home figure {
     width: 100%;
 }
@@ -220,6 +220,22 @@ header .login {
     margin-top: 1em;
     font-size: 3rem;
 }
+
+/* develop */
+/* #develop {display: none;} */
+#develop {}
+
+/* lecturenote */
+#lecturenote {display: none;}
+
+/* diary */
+#diary {display: none;}
+
+/* video */
+#video {display: none;}
+
+/* map */
+#map {display: none;}
 
 /* main-nav */
 .main-nav {
