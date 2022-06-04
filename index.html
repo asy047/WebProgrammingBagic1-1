@@ -81,10 +81,68 @@
                         </figure>
                         <h2>Welcome, 여기는 안서영의 블로그입니다. 잘 보다 가세용.</h2>
                         <p>좌측 상단에 배경음악 컨트롤러가 있어요!</p>
-                        <p id="dDay">s</p>
+                        <p id="dDay"></p>
                     </section>
                     <section id="develop">
                         <h3>develop</h3>
+                        <div class="dev-conts">
+                            <a href="dev01.html" target="_blank">
+                                <div class="dev-cont">
+                                    <figure>
+                                        <img src="img/dev01.jpg" alt="디벨롭노트 첫번째">
+                                    </figure>
+                                    <h3>220526 - 스토리보드 최초 작성</h3>
+                                    <p> ① Text slider banner
+                                        지정된 가로폭 안에서 계속해서
+                                        흐르는 text.
+                                        - 네온사인 전광판
+                                        ② navigator
+                                        nav a를 클릭해 호출한 id값에
+                                        일치하는 section을 불러옴.
+                                        - tab menu 방식
+                                        - nav depth 1 hover시, depth
+                                        2가 슬라이딩 되어 내려옴.
+                                        ③ 초기 home화면
+                                        - main content img
+                                        - Welcome message
+                                        - 음소거 해제 유도 text
+                                        ④ D-day counter
+                                        - 과도한 로딩 방지를 위해
+                                        javascript로 해당 쿼리만 재로딩
+                                        400 * 500 size, window popup. ① Id, password가 공란이면
+                                        submit되지 않음. - required 프로퍼티 사용. ② 회원가입 버튼 클릭시, join.html 로 전환. - _blank 사용하지 않음. ③ 공란이 있으면 submit되지 않음. ④ password가 password
+                                        checking값과 같은지 검사. - submit 버튼 클릭시 함수 호출
+                                        ⑤ 모든 submit 버튼은 클릭시
+                                        window popup 닫힘. - 실제 회원가입 밑 로그인 기능 은 추후 구현 예정
+                                        </p>
+                                </div>
+                            </a>
+                            <a href="dev02.html" target="_blank">
+                                <div class="dev-cont">
+                                    <figure>
+                                        <img src="img/dev02.jpg" alt="디벨롭노트 두번째">
+                                    </figure>
+                                    <h3>220525 - Error note</h3>
+                                    <p>아오<br>
+                                        side main nav 하다 때려침 ㅋ.
+                                        webfonts 안 먹음.
+                                        body 맨 끝에 script.js있음. 로딩 안돼서 거따 넣어둠. head에 넣어두면 함수 실행할때 로드 돼서 변수 못 받아옴.
+                                        audio controler function jQeury로 해서할지, pure javascript로 할지 고민중...
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="dev03.html" target="_blank">
+                                <div class="dev-cont">
+                                    <figure>
+                                        <img src="img/dev03.jpg" alt="디벨롭노트 세번째">
+                                    </figure>
+                                    <h3>220531 - audio controller 관련 메모</h3>
+                                    <p>
+                                        # javascript ## audio controller 완성 ### audio muted - 굳이 function으로 재언해서 muted bool 값을 바꾸지 않고, audio.muted = !audio.muted; 로 바꾸는 즉시 true false값을 반전 시켜준다. ```c if(id == "muted") { audio.muted = !audio.muted; if(audio.muted == false) { nowPlaying(); } else { playingState.innerHTML = "muted!!" icoState.innerHTML = "🔇";    } }``### audio pasued toggle - muted와 다르게 paused의 상태를 함수로 따로 선언해준다.  ```jsx var audioPaused = audio.paused; ```- playing 상태가 확인되면 function을 실행시켜 audiopaused 값을 반전시켜줌. 이때, paused의 값이 바뀌는게 아닌 변수의 값이 바뀌는 것이기 때문에 실제 audio에 영향이 없다.
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
                     </section>
                     <section id="lecturenote">
                         <h3>lecturenote</h3>
@@ -104,29 +162,29 @@
                 <article class="main-nav">
                     <nav>
                         <ul class="depth1">
-                            <li>
-                                <a href="#home">
+                            <li data-tab="#home">
+                                <a href="javascript:;">
                                     home
                                 </a>
                             </li>
                             <li class="post">
                                 post
                                 <ul class="depth2">
-                                    <li><a href="#develop">
+                                    <li data-tab="#develop"><a href="javascript:;">
                                         devlop note
                                     </a></li>
-                                    <li><a href="#lectureNote">
+                                    <li data-tab="#lectureNote"><a href="javascript:;">
                                         lecture note
                                     </a></li>
-                                    <li><a href="#diary">
+                                    <li data-tab="#diary"><a href="javascript:;">
                                         diary
                                     </a></li>
                                 </ul>
                             </li>
-                            <li><a href="#video">
+                            <li data-tab="#video"><a href="javascript:;">
                                 video
                             </a></li>
-                            <li><a href="#map">
+                            <li data-tab="#map"><a href="javascript:;">
                                 map
                             </a></li>
                         </ul>

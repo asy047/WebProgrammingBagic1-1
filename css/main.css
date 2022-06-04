@@ -204,6 +204,7 @@ header .login {
     /* height: 2000px; */
     /* background: #444; */
     border-radius: 0 0 15px 15px;
+    box-sizing: border-box;
 }
 
 /* home */
@@ -223,7 +224,7 @@ header .login {
 
 /* develop */
 /* #develop {display: none;} */
-#develop {}
+#develop {display: block;}
 
 /* lecturenote */
 #lecturenote {display: none;}

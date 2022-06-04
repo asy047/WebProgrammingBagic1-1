@@ -99,10 +99,10 @@ $(function() {
   $(".loading").fadeOut(1500);
 
   //tab nav
-  $(".main-nav a").on('click', function() {
-    console.log($(this));
-    $(this).id().not().hide();
-    $(this).id().show();
+  $(".main-nav li").on('click', function() {
+    var link = $(this).attr('data-tab');
+    $(link).siblings().hide();
+    $(link).fadeIn();
   })
    
 
