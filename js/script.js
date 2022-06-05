@@ -103,8 +103,31 @@ $(function() {
     var link = $(this).attr('data-tab');
     $(link).siblings().hide();
     $(link).fadeIn();
+    if(link == "#diary") {
+      $(link).fadeIn().css({
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between"
+      });
+    }
   })
-   
 
+  //  cont
+  $(".cont").click(function() {
+    $(this).toggleClass("on");
+  })
+
+  // modal
+  $(".diarybtn").click(function() {
+    var $thisData = $(this).attr("data-tab");
+    $($thisData).css('display', 'flex');
+  })
+  $(".modal").click(function() {
+    $(this).hide();
+  })
+
+  $(".diary-ico .fa-heart").click(function() {
+    $(this).toggleClass("far").toggleClass("fa").css("color", "hotpink");
+  })
 
 });
