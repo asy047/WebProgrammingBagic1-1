@@ -1,10 +1,13 @@
 // -- pure javascript area --
 console.log("load");
 
+guestBookUp = null;
+guestDel = null;
+
 // ========== audio control ==========
 // 변수 선언
-document.getElementById("audio").volume = 0.4;
-var audio = document.getElementById("audio");
+document.getElementById("player").volume = 0.4;
+var audio = document.getElementById("player");
 var playButton = document.getElementById("play");
 var playingState = document.getElementById("playingState");
 var audioArea = document.getElementsByClassName("audio-area");
@@ -62,7 +65,6 @@ function audioControl(e) {
     // }, 3000);
   }
 }
-// ========== //audio control ==========
 
 // ========== D-Day ==========
 const dDay = document.getElementById("dDay");
@@ -82,7 +84,70 @@ function diffDay() {
 diffDay();
 setInterval(diffDay, 1000);
 
+// ========== canvas ==========
+var canvas, context;
 
+function init() {
+	canvas = document.getElementById("myCanvas");
+	context = canvas.getContext("2d");
+
+	context.lineWidth = 2; // 선 굵기를 2로 설정
+	context.strokeStyle = "black";
+
+	// 마우스 리스너 등록. e는 MouseEvent 객체
+	canvas.addEventListener("mousemove", function (e) { move(e) }, false);
+	canvas.addEventListener("mousedown", function (e) { down(e) }, false);
+	canvas.addEventListener("mouseup", function (e) { up(e) }, false);
+	canvas.addEventListener("mouseout", function (e) { out(e) }, false);
+}
+
+var startX=0, startY=0; // 마우스의 마지막 포인터 좌표
+var drawing=false;
+function draw(curX, curY) { 
+	context.beginPath();
+	context.moveTo(startX, startY);
+	context.lineTo(curX, curY);
+	context.stroke();
+}
+function down(e) { 
+	startX = e.offsetX; startY = e.offsetY;
+	drawing = true;
+}
+function up(e) { drawing = false; }
+function move(e) {
+	if(!drawing) return; // 마우스가 눌러지지 않았으면 리턴
+	var curX = e.offsetX, curY = e.offsetY;
+	draw(curX, curY);	
+	startX = curX; startY = curY;
+}
+function out(e) { drawing = false; }
+
+const currentColor = document.getElementsByClassName("current-color");
+function btnEvent(e) {
+  id = e.target.id;
+
+  if(id == "btn-black") { context.strokeStyle = "black"; currentColor[0].style.color = "black"; }
+  if(id == "btn-red") { context.strokeStyle = "red"; currentColor[0].style.color = "red"; }
+  if(id == "btn-green") { context.strokeStyle = "green"; currentColor[0].style.color = "green"; }
+  if(id == "btn-blue") { context.strokeStyle = "blue"; currentColor[0].style.color = "blue"; }
+  if(id == "btn-clear") { context.clearRect(0, 0, canvas.width, canvas.height);  }
+}
+
+// ========== guest book ==========
+function guestBook() {
+  guestBookUp();
+}
+function guestDelJs() {
+  guestDel();
+}
+
+// ========== keyring ==========
+function reset_animation() {
+  var el = document.getElementById('keyring');
+  el.style.animation = 'none';
+  el.offsetHeight; /* trigger reflow */
+  el.style.animation = null; 
+}
 
 
 
@@ -128,6 +193,42 @@ $(function() {
 
   $(".diary-ico .fa-heart").click(function() {
     $(this).toggleClass("far").toggleClass("fa").css("color", "hotpink");
+  });
+
+  // canvas
+  $(".btn-area button:nth-of-type(1)").css("box-shadow", "5px 5px 10px #555");
+  $(".btn-area button").not("button:nth-of-type(5)").click(function() {
+    $(this).not().siblings().css("box-shadow", "none");
+    $(this).css("box-shadow", "5px 5px 10px #555");
   })
+
+  function guestBookUp() {
+    var guestName = document.getElementById("guest-name").value;
+    var guestPwd = document.getElementById("guest-password").value;
+    var guestDescVal = document.getElementById("guest-desc").value;
+    var guestDate = new Date(+new Date() + 3240 * 10000).toISOString().split("T")[0];
+    var geustTime = new Date().toTimeString().split(" ")[0];
+  
+    $("#guest").append("<div class='guest-conts'> <hr> <span>❣</span> <h3>" + guestName + "</h3> <p class='date'>" + guestDate + " " + geustTime +"</p> <p class='g-pwd'>" + guestPwd + "</p> <p class='guest-desc'>" + guestDescVal +"</p> <button onclick='guestDelJs(event)'>삭제</button> </div>");
+
+    // console.log(guestName, guestPwd, guestDescVal); 
+  }
+  function guestDel(e) {
+    var delTarget = $(e.target);
+    var gPwdChk = prompt("비밀번호를 입력해주세요");
+    // console.log($(delTarget).siblings(".g-pwd").text(), gPwdChk);
+
+    if(gPwdChk == $(delTarget).siblings(".g-pwd").text()) {
+      $(delTarget).parents(".guest-conts").remove();
+    } else {
+      alert("비밀번호가 틀립니다.");
+    }
+
+  }
+  guestBook = guestBookUp;
+  guestDelJs = guestDel;
+
+  // keyring
+
 
 });

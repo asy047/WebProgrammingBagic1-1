@@ -10,9 +10,9 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/all.min.js"></script>
 </head>
-<body>
+<body onload="init()">
     <div class="loading">
-        <i class="fa-solid fa-face-grin-wink"></i>
+        <span>❤</span>
     </div>
     <div id="wrap">
         <div id="container">
@@ -29,7 +29,10 @@
             
             <div id="sub-header">
                 <div class="audio-area"> <!-- ## 테스팅을 위해 muted 해놓음 ## -->
-                    <audio id="audio" src="media/bgMusic.mp3" muted autoplay loop>오디오가 지원되지 않습니다 ㅜ.ㅜ</audio>
+                    <iframe src="media/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>  
+                    <audio id="player" autoplay loop>
+                        <source src="media/bgMusicTest.mp3" type="audio/mp3">
+                    </audio>
                     <button id="volumeUp" onclick="audioControl(event)">➕</button>
                     <button id="volumeDown" onclick="audioControl(event)">➖</button>
                     <button id="muted" onclick="audioControl(event)">🔈</button>
@@ -62,7 +65,7 @@
                             
                         </div>
                     </div>
-                    <div id="keyring">
+                    <div id="keyring" onclick="reset_animation()">
                         <div class="dotted">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 352C309 352 352 309 352 256C352 202.1 309 160 256 160C202.1 160 160 202.1 160 256C160 309 202.1 352 256 352z"/></svg>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 352C309 352 352 309 352 256C352 202.1 309 160 256 160C202.1 160 160 202.1 160 256C160 309 202.1 352 256 352z"/></svg>
@@ -355,11 +358,36 @@ function out(e) { drawing = false; }
                         <h2>주인장의 금주 추천 동영상</h2>
                         <iframe width="100%" height="720" src="https://www.youtube.com/embed/MIYBc4ighfo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </section>
-                    <section id="map">
+                    <section id="canvas">
+                        <h2>그림을 그려보세요!</h2>
+                        <canvas id="myCanvas" width="720" height="500" style="background-color: aliceblue;"></canvas>
+                        <div class="btn-area">
+                            <span class="current-color">✒</span>
+                            <button onclick="btnEvent(event)" id="btn-black">black</button>
+                            <button onclick="btnEvent(event)" id="btn-red">red</button>
+                            <button onclick="btnEvent(event)" id="btn-green">green</button>
+                            <button onclick="btnEvent(event)" id="btn-blue">blue</button>
+                            <button onclick="btnEvent(event)" id="btn-clear">🗑</button>
+                        </div>
                         
                     </section>
                     <section id="guest">
-                        <h3>guest</h3>
+                        <h2>방명록</h2>
+                        <form>
+                            <input name="guest" type="text" id="guest-name" placeholder="닉네임">
+                            <input name="guest" type="password" id="guest-password" placeholder="비밀번호">
+                            <textarea name="guest" id="guest-desc" cols="50" rows="5" required></textarea>
+                            <input type="button" value="등록" onclick="guestBook()">
+                        </form>
+                        <div class="guest-conts">
+                            <hr>
+                            <span>❣</span>
+                            <h3>뫄뫄뫄씨</h3>
+                            <p class="date">2022-06-07 00:50</p>
+                            <p class="g-pwd">12345</p>
+                            <p class="guest-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, fugit debitis illum possimus nobis aut quae incidunt excepturi quam, ad minus nisi praesentium alias aliquid repudiandae suscipit labore sint ex? Eligendi, quis quidem aspernatur veritatis architecto tempora iure. Sed, incidunt a eveniet eius recusandae illo quibusdam nihil fugiat! Laboriosam pariatur quae cumque.</p>
+                            <button onclick="guestDelJs(event)">삭제</button>
+                        </div>
                     </section>
                 </article>
                 <!-- //contents -->
@@ -389,8 +417,8 @@ function out(e) { drawing = false; }
                             <li data-tab="#video"><a href="javascript:;">
                                 video
                             </a></li>
-                            <li data-tab="#map"><a href="javascript:;">
-                                map
+                            <li data-tab="#canvas"><a href="javascript:;">
+                                canvas
                             </a></li>
                             <li data-tab="#guest"><a href="javascript:;">
                                 guest

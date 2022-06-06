@@ -19,12 +19,18 @@ body {
 	display: table;
 	text-align: center;
 }
-.loading i {
-	vertical-align: middle;
-	text-align: center;
-	display: table-cell;
-	font-size: 60px;
+.loading span {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    font-size: 7rem;
 	color: hotpink;
+    animation: loadingHeart 3s;
+}
+@keyframes loadingHeart {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(365deg);}
 }
 ::selection {
 	background-color: hotpink;
@@ -35,7 +41,11 @@ body {
 #keyring{
     position: relative;
     top: 80px;
+    transform-origin: top left;
+    animation: dangle 5s ease-in-out;
+    cursor: pointer;
 }
+/* #keyring:hover { animation: dangle 5s ease-in-out; } */
 #keyring .dotted svg{
     display: flex;
     width: 10px;
@@ -48,8 +58,26 @@ body {
     fill: hotpink;
     filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.4));
 }
-
-
+@keyframes dangle {
+    0% {
+      transform: rotate(0deg);
+    }
+    20% {
+      transform: rotate(-10deg);
+    }
+    35% {
+      transform: rotate(10deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+    65% {
+        transform: rotate(5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 
 /* container */
 #container {
@@ -230,10 +258,11 @@ header .login {
 }
 
 /* home */
-#home {display: none;}
+/* #home {display: none;} */
 #home figure {width: 100%;}
 #home figure img {width: 100%;}
 h2 {
+    margin-bottom: .5em;
     font-size: 3.5rem;
     font-weight: bold;
 }
@@ -248,7 +277,7 @@ h2 {
     width: 100%;
     margin-bottom: 3em;
     padding: 3em 2em;
-    border: 5px outset #6868ac;
+    /* border: 5px outset #6868ac; */
     border-radius: 30px;
     box-sizing: border-box;
     background: #b5b5ff50;
@@ -256,7 +285,9 @@ h2 {
     cursor: pointer;
 }
 .conts .cont:hover {
-    box-shadow: 1px 1px 8px #222;
+    box-shadow: 1px 1px 8px #aaa;
+    transform: translateY(-15px);
+
 }
 .cont h3 {
     display: inline-block;
@@ -372,10 +403,68 @@ h2 {
 .diary-decs p {word-break: keep-all;}
 
 /* video */
-/* #video {display: none;} */
+#video {display: none;}
 
-/* map */
-#map {display: none;}
+/* canvas */
+#canvas {display: none;}
+#canvas canvas {float: left; margin-right: 1em;}
+#canvas .btn-area {
+    display: flex; justify-content: space-around; flex-direction: column;
+    height: 400px;
+}
+#canvas .btn-area .current-color {
+    display: block;
+    font-size: 35px;
+    transform: rotate(125deg) translate(50%, 30%);
+    color: black;
+}
+#canvas .btn-area button {
+    display: inline-block;
+    width: 40px; height: 40px;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+}
+#canvas .btn-area button:not(button:nth-of-type(5)) {text-indent: -999999px;}
+#canvas .btn-area button:nth-of-type(1){background: #000;}
+#canvas .btn-area button:nth-of-type(2){background: red;}
+#canvas .btn-area button:nth-of-type(3){background: green;}
+#canvas .btn-area button:nth-of-type(4){background: blue;}
+#canvas .btn-area button:nth-of-type(5){
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 4rem;
+    background: transparent;
+}
+
+/* guest */
+#guest {display: none;}
+#guest .guest-conts span, .guest-conts h3 {font-size: 2rem;}
+#guest form input, textarea {font-family: 'Apple SD Gothic', sans-serif; color: #222;}
+#guest form textarea {
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    resize: none;
+}
+.guest-conts hr {display: block; margin-top: 4em;}
+.guest-conts span {color: hotpink;}
+.guest-conts .date {margin-bottom: .2em;}
+.guest-conts button, #guest form input[type=button]  {
+    float: right;
+    padding: .3em 1em;
+    margin-top: 1em;
+    font-size: 1.3rem;
+    background: #eee;
+    border: 1px solid #222;
+}
+.guest-conts button:hover, #guest form input[type=button]:hover {background: #aaa;}
+.guest-conts button:active, #guest form input[type=button]:active {background: #999;}
+.guest-conts .g-pwd {
+    text-indent: -9999999px;
+    font-size: 0;
+    display: none;
+}
 
 /* == main-nav == */
 .main-nav {
